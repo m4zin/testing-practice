@@ -20,12 +20,18 @@ function calculateMinAndMax(arr) {
 }
 
 function analyzeArray(arr) {
-    return {
-        average: calculateAverage(arr),
-        min: calculateMinAndMax(arr).min,
-        max: calculateMinAndMax(arr).max,
-        length: arr.length
+
+    if(arr.every(elem => {return typeof elem === 'number'})) {
+        return {
+            average: calculateAverage(arr),
+            min: calculateMinAndMax(arr).min,
+            max: calculateMinAndMax(arr).max,
+            length: arr.length
+        }
+    } else {
+        return false
     }
+
 }
 
 export {analyzeArray}
